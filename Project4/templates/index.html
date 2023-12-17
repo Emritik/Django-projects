@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather-App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar bg-secondary">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Weather-App</span>
+      </div>
+    </nav>
+    <form method="post" class="card mx-auto col-6 shadow-lg p-3 my-4">
+      {% csrf_token %}
+      <div class="mb-3 d-flex">
+        <input type="text" class="form-control me-2" name="city" />
+        <button class="btn btn-outline-success" type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </button>
+      </div>
+    </form>
+<center>
+    <div>
+        {% if country_code and coordinate and temp and pressure and humidity %}
+        <div class="col-md-6 col-md-offset-3">
+          <h3>country code : {{country_code}}</h1>
+            <h5>coordinate : {{coordinate}}</h5>
+            <h5>temp : {{temp}}</h5>
+            <h5>pressure : {{pressure}} </h5>
+            <h5>humidity : {{humidity}}</h5>
+        </div>
+        {% endif %}
+      </div>
+    </center>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
